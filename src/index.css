@@ -1,0 +1,7 @@
+@import './App.css';
+
+/* global app styles are imported from App.css */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
