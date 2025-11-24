@@ -26,8 +26,19 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       price: 5.99,
       quantity: 10,
     },
+      {
+     id: 2,
+      image: 'https://shutterandmint.com/wp-content/uploads/2023/07/cookies-and-cream-boba-hero-image.png',
+      name: 'Cookieas and Cream Bubble Tea',
+      category: 'Bubble Tea',
+      description: 'A delightful beverage that combines the rich flavors of cookies and cream with the creamy essence of milk tea..',
+      specification: '16oz, Contains classic tapioca pearl',
+      rating: 4.8,
+      price: 2.70,
+      quantity: 15,
+    },
     {
-      id: 2,
+      id: 3,
       image: 'https://cdn.pixabay.com/photo/2018/05/07/11/22/mango-3380631_1280.jpg',
       name: 'Tropical Fruit Blend',
       category: 'Fruit Blend',
@@ -38,7 +49,19 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       quantity: 3,
     },
     {
-      id: 3,
+       id: 4,
+      image: 'https://tse4.mm.bing.net/th/id/OIP.vzLhZFNTF2WJGPnhPt4VmAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3',
+      name: 'Perfect Kiwi Smoothie',
+      category: 'Fruit Blend',
+      description: 'A vibrant and refreshing drink made with ripe kiwis.',
+      specification: '200ml sugar free',
+      rating: 3.8,
+      price: 5,
+      quantity: 7,
+
+    },
+    {
+      id: 5,
       image: 'https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_640.jpg',
       name: 'Sparkling Lemonade',
       category: 'Sparkling',
@@ -49,7 +72,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       quantity: 15,
     },
     {
-      id: 4,
+      id: 6,
       image: 'https://cdn.pixabay.com/photo/2017/01/29/16/40/bread-dough-2018672_640.jpg',
       name: 'Pan de Sal',
       category: 'Bread',
@@ -60,7 +83,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       quantity: 25,
     },
     {
-      id: 5,
+      id: 7,
       image: 'https://cdn.pixabay.com/photo/2021/10/15/17/06/bread-6713107_640.jpg',
       name: 'Tinapay Special',
       category: 'Bread',
@@ -69,6 +92,17 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       rating: 4.6,
       price: 3.49,
       quantity: 12,
+      },
+      {
+        id: 8,
+      image: 'https://www.foxyfolksy.com/wp-content/uploads/2017/02/spanish-bread-1-1.jpg',
+      name: 'Spanish Bread',
+      category: 'Bread',
+      description: 'A delicious and sweet soft bread roll with a buttery and sugary filling,',
+      specification: 'Freshly home baked',
+      rating: 4.3,
+      price: 5.89,
+      quantity: 15,
     },
   ]);
 
