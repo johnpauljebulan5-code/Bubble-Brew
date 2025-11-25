@@ -29,7 +29,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       {
      id: 2,
       image: 'https://shutterandmint.com/wp-content/uploads/2023/07/cookies-and-cream-boba-hero-image.png',
-      name: 'Cookieas and Cream Bubble Tea',
+      name: 'Cookies and Cream Bubble Tea',
       category: 'Bubble Tea',
       description: 'A delightful beverage that combines the rich flavors of cookies and cream with the creamy essence of milk tea..',
       specification: '16oz, Contains classic tapioca pearl',
@@ -73,6 +73,18 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
     },
     {
       id: 6,
+      image: 'https://deliciouslysprinkled.com/wp-content/uploads/2023/03/Fresh-Strawberry-Lemonade-4.jpg',
+      name: 'Strawberry Lemonade',
+      category: 'Sparkling',
+      description: 'a refreshing beverage that blends the tanginess of fresh lemons with the natural sweetness of ripe strawberries.',
+      specification: 'Typical 8-ounce serving containing  105 calories, 27.5 grams of carbohydrates.',
+      rating: 4.0,
+      price: 6,
+      quantity: 25,
+
+    },
+    {
+      id: 7,
       image: 'https://cdn.pixabay.com/photo/2017/01/29/16/40/bread-dough-2018672_640.jpg',
       name: 'Pan de Sal',
       category: 'Bread',
@@ -83,7 +95,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       quantity: 25,
     },
     {
-      id: 7,
+      id: 8,
       image: 'https://cdn.pixabay.com/photo/2021/10/15/17/06/bread-6713107_640.jpg',
       name: 'Tinapay Special',
       category: 'Bread',
@@ -94,7 +106,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       quantity: 12,
       },
       {
-        id: 8,
+        id: 9,
       image: 'https://www.foxyfolksy.com/wp-content/uploads/2017/02/spanish-bread-1-1.jpg',
       name: 'Spanish Bread',
       category: 'Bread',
