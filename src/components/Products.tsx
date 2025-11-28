@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ADD_TO_CART_DELAY, ADDED_STATE_DURATION } from '../config';
+import Notification, { type NotificationType } from './Notification';
 
 type Product = {
   id: number;
@@ -12,6 +13,11 @@ type Product = {
   price: number;
   quantity: number;
 };
+
+type NotificationState = {
+  message: string;
+  type: NotificationType;
+} | null;
 
 function Products({ addToCart }: { addToCart: (p: Product) => void }) {
   const [products, setProducts] = useState<Product[]>([
@@ -141,6 +147,7 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
   
   const [addedIds, setAddedIds] = useState<number[]>([]);
   const [loadingIds, setLoadingIds] = useState<number[]>([]);
+  const [notification, setNotification] = useState<NotificationState>(null);
 
   const calculateSubtotal = (price: number, quantity: number) => price * quantity;
 
@@ -162,6 +169,9 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
       addToCart(product);
       setLoadingIds(prev => prev.filter(id => id !== product.id));
       setAddedIds(prev => [...prev, product.id]);
+      
+      // Show success notification
+      setNotification({ message: `✓ "${product.name}" added to cart!`, type: 'success' });
       
       window.setTimeout(() => {
         setAddedIds(prev => prev.filter(id => id !== product.id));
@@ -192,6 +202,13 @@ function Products({ addToCart }: { addToCart: (p: Product) => void }) {
   return (
     <div className="products">
       <h2>Product Management</h2>
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       <div className="filter">
         <label>Filter by Category:</label>
         <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>

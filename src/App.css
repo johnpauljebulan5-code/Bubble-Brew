@@ -109,7 +109,6 @@ nav a:hover{background:rgba(255,255,255,0.08);color:var(--card);transform:transl
 @keyframes spin{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
 .low-stock{color:#d9534f;font-weight:700}
 
-.product-list{display:flex;flex-wrap:wrap;gap:20px}
 .product-details{background:var(--card);padding:20px;margin-top:20px;border-radius:12px}
 
 /* Modal styles for product details */

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Notification, { type NotificationType } from './Notification';
 
 type NewProductForm = {
   image: string;
@@ -12,12 +13,18 @@ type NewProductForm = {
   quantity: string;
 };
 
+type NotificationState = {
+  message: string;
+  type: NotificationType;
+} | null;
+
 function AddProduct() {
   const [form, setForm] = useState<NewProductForm>({
     image: '', name: '', category: 'Bread', description: '', specification: '', rating: '4.0', price: '0.00', quantity: '1'
   });
   const [error, setError] = useState('');
   const [saved, setSaved] = useState(false);
+  const [notification, setNotification] = useState<NotificationState>(null);
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -28,6 +35,7 @@ function AddProduct() {
     e.preventDefault();
     if (!form.name || !form.price) {
       setError('Name and price are required');
+      setNotification({ message: 'Please fill in all required fields', type: 'error' });
       return;
     }
 
@@ -49,16 +57,28 @@ function AddProduct() {
       arr.push(newItem);
       localStorage.setItem('customProducts', JSON.stringify(arr));
       setSaved(true);
+      
+      // Show success notification
+      setNotification({ message: `✓ Product "${form.name}" added successfully!`, type: 'success' });
+      
       // small delay then go to products page
-      setTimeout(() => navigate('/products'), 800);
+      setTimeout(() => navigate('/products'), 1500);
     } catch (err) {
       setError('Could not save product');
+      setNotification({ message: 'Failed to add product. Please try again.', type: 'error' });
     }
   };
 
   return (
     <div className="add-product-page container">
       <h2>Add New Product</h2>
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       {error && <p className="error">{error}</p>}
       {saved && <p className="success">Product saved — redirecting to Products...</p>}
       <form onSubmit={handleSubmit} className="add-product-form">
